@@ -1,0 +1,124 @@
+size of categorical data ------->(150000, 396)
+size of numerical data   ------->(150000, 1)
+***** Using 120000 samples for training and 30000 for validation *****
+Model: "sisben_network_2"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            [(None, 396)]        0                                            
+__________________________________________________________________________________________________
+layer1 (Dense)                  (None, 4)            1588        input_1[0][0]                    
+__________________________________________________________________________________________________
+input_2 (InputLayer)            [(None, 1)]          0                                            
+__________________________________________________________________________________________________
+layer2 (Dense)                  (None, 8)            40          layer1[0][0]                     
+__________________________________________________________________________________________________
+dense (Dense)                   (None, 16)           32          input_2[0][0]                    
+__________________________________________________________________________________________________
+layer3 (Dense)                  (None, 8)            72          layer2[0][0]                     
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 8)            136         dense[0][0]                      
+__________________________________________________________________________________________________
+predictions (Dense)             (None, 4)            36          layer3[0][0]                     
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 4)            36          dense_1[0][0]                    
+__________________________________________________________________________________________________
+concatenate (Concatenate)       (None, 8)            0           predictions[0][0]                
+                                                                 dense_2[0][0]                    
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 4)            36          concatenate[0][0]                
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 4)            20          dense_3[0][0]                    
+==================================================================================================
+Total params: 1,996
+Trainable params: 1,996
+Non-trainable params: 0
+__________________________________________________________________________________________________
+None
+# Fit model on training data
+
+Train on 120000 samples, validate on 30000 samples
+Epoch 1/20
+120000/120000 - 11s - loss: 1.2303 - categorical_accuracy: 0.4395 - val_loss: 1.0854 - val_categorical_accuracy: 0.5359
+Epoch 2/20
+120000/120000 - 8s - loss: 1.0700 - categorical_accuracy: 0.5359 - val_loss: 1.0617 - val_categorical_accuracy: 0.5401
+Epoch 3/20
+120000/120000 - 9s - loss: 1.0577 - categorical_accuracy: 0.5408 - val_loss: 1.0560 - val_categorical_accuracy: 0.5454
+Epoch 4/20
+120000/120000 - 13s - loss: 1.0552 - categorical_accuracy: 0.5421 - val_loss: 1.0629 - val_categorical_accuracy: 0.5355
+Epoch 5/20
+120000/120000 - 9s - loss: 1.0513 - categorical_accuracy: 0.5433 - val_loss: 1.0643 - val_categorical_accuracy: 0.5351
+Epoch 6/20
+120000/120000 - 10s - loss: 1.0477 - categorical_accuracy: 0.5453 - val_loss: 1.0506 - val_categorical_accuracy: 0.5442
+Epoch 7/20
+120000/120000 - 10s - loss: 1.0462 - categorical_accuracy: 0.5463 - val_loss: 1.0527 - val_categorical_accuracy: 0.5368
+Epoch 8/20
+120000/120000 - 9s - loss: 1.0469 - categorical_accuracy: 0.5453 - val_loss: 1.0516 - val_categorical_accuracy: 0.5471
+Epoch 9/20
+120000/120000 - 10s - loss: 1.0451 - categorical_accuracy: 0.5467 - val_loss: 1.0563 - val_categorical_accuracy: 0.5455
+Epoch 10/20
+120000/120000 - 11s - loss: 1.0441 - categorical_accuracy: 0.5476 - val_loss: 1.0526 - val_categorical_accuracy: 0.5432
+Epoch 11/20
+120000/120000 - 9s - loss: 1.0457 - categorical_accuracy: 0.5458 - val_loss: 1.0531 - val_categorical_accuracy: 0.5468
+Epoch 12/20
+120000/120000 - 9s - loss: 1.0443 - categorical_accuracy: 0.5478 - val_loss: 1.0526 - val_categorical_accuracy: 0.5467
+Epoch 13/20
+120000/120000 - 10s - loss: 1.0434 - categorical_accuracy: 0.5471 - val_loss: 1.0495 - val_categorical_accuracy: 0.5484
+Epoch 14/20
+120000/120000 - 10s - loss: 1.0431 - categorical_accuracy: 0.5477 - val_loss: 1.0529 - val_categorical_accuracy: 0.5472
+Epoch 15/20
+120000/120000 - 9s - loss: 1.0429 - categorical_accuracy: 0.5491 - val_loss: 1.0536 - val_categorical_accuracy: 0.5416
+Epoch 16/20
+120000/120000 - 8s - loss: 1.0426 - categorical_accuracy: 0.5468 - val_loss: 1.0590 - val_categorical_accuracy: 0.5423
+Epoch 17/20
+120000/120000 - 8s - loss: 1.0429 - categorical_accuracy: 0.5480 - val_loss: 1.0486 - val_categorical_accuracy: 0.5446
+Epoch 18/20
+120000/120000 - 8s - loss: 1.0428 - categorical_accuracy: 0.5476 - val_loss: 1.0484 - val_categorical_accuracy: 0.5453
+Epoch 19/20
+120000/120000 - 8s - loss: 1.0420 - categorical_accuracy: 0.5481 - val_loss: 1.0574 - val_categorical_accuracy: 0.5419
+Epoch 20/20
+120000/120000 - 9s - loss: 1.0419 - categorical_accuracy: 0.5491 - val_loss: 1.0489 - val_categorical_accuracy: 0.5449
+Saved model to disk
+Evaluate on test data
+test loss, test acc:  [1.0489213870366414, 0.5449333]
+Pertenece al grupo D         grupo verdadero es  D
+Pertenece al grupo D         grupo verdadero es  D
+Pertenece al grupo B         grupo verdadero es  B
+Pertenece al grupo B         grupo verdadero es  B
+Pertenece al grupo D         grupo verdadero es  D
+Pertenece al grupo D         grupo verdadero es  A
+Pertenece al grupo B         grupo verdadero es  B
+Pertenece al grupo D         grupo verdadero es  D
+Pertenece al grupo B         grupo verdadero es  C
+Pertenece al grupo A         grupo verdadero es  A
+Pertenece al grupo A         grupo verdadero es  B
+Pertenece al grupo A         grupo verdadero es  A
+Pertenece al grupo B         grupo verdadero es  D
+Pertenece al grupo B         grupo verdadero es  A
+Pertenece al grupo C         grupo verdadero es  B
+Pertenece al grupo D         grupo verdadero es  D
+Pertenece al grupo B         grupo verdadero es  A
+Pertenece al grupo B         grupo verdadero es  A
+Pertenece al grupo B         grupo verdadero es  A
+Pertenece al grupo B         grupo verdadero es  B
+associate probabilities 
+[[0.00176864 0.09075415 0.35479924 0.5526779 ]
+ [0.00164716 0.08756945 0.3512609  0.55952245]
+ [0.21387991 0.5163085  0.21990806 0.0499035 ]
+ [0.22305988 0.51640445 0.21337482 0.04716085]
+ [0.00103514 0.06916179 0.32743555 0.60236746]
+ [0.00289673 0.11584912 0.37801084 0.50324327]
+ [0.14172707 0.49873334 0.2791962  0.0803434 ]
+ [0.00281265 0.11419416 0.37670457 0.5062885 ]
+ [0.20563142 0.51588404 0.22595033 0.05253419]
+ [0.48003376 0.42285183 0.0866925  0.01042197]
+ [0.7223252  0.24992248 0.02601675 0.00173562]
+ [0.46382305 0.43232882 0.09234416 0.01150394]
+ [0.19067124 0.5142223  0.23734908 0.05775737]
+ [0.41370735 0.45938802 0.11140714 0.01549751]
+ [0.01554905 0.24962555 0.42015034 0.31467506]
+ [0.00110946 0.07166196 0.33105165 0.5961769 ]
+ [0.17878792 0.5119965  0.24683477 0.06238087]
+ [0.35810718 0.48477238 0.13572884 0.02139162]
+ [0.24033609 0.51560026 0.20159452 0.04246911]
+ [0.19715214 0.51509005 0.23233922 0.05541857]]
